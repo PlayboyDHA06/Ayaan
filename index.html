@@ -1,52 +1,40 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ayaan Karachi | Private Gentleman & Companion in Karachi</title>
+  <title>Ayaan Karachi | Private Gentleman & Companion</title>
 
   <meta
     name="description"
-    content="Ayaan offers discreet, respectful private companionship in Karachi, including DHA, Clifton and PECHS. Premium conversation, dinners, celebrations and elegant social company."
-  />
+    content="Ayaan Karachi — a refined gentleman offering discreet and respectful social companionship in Karachi, including DHA, Clifton and PECHS."
+  >
 
-  <meta
-    name="keywords"
-    content="private companion Karachi, gentleman companion Karachi, companionship DHA Karachi, companion Clifton Karachi, private social companion Karachi"
-  />
+  <meta name="robots" content="index, follow">
 
-  <meta name="robots" content="index, follow" />
-  <meta name="google-site-verification" content="wNRqs82rmdE-kMe3BFP3AcmV49hR7wS407s1vULq5nM" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Ayaan Karachi | Private Gentleman & Companion" />
-  <meta
-    property="og:description"
-    content="Discreet, respectful and premium companionship in Karachi."
-  />
-  <meta property="og:type" content="website" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/Ayaan/favicon.png">
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <style>
     :root {
       --gold: #d4af37;
       --gold-light: #f3d77a;
-      --black: #080808;
+      --black: #070707;
       --dark: #101010;
       --card: rgba(255,255,255,0.055);
       --border: rgba(212,175,55,0.22);
-      --text: #f3f3f3;
-      --muted: #b7b7b7;
+      --white: #f5f5f5;
+      --muted: #b8b8b8;
     }
 
     * {
@@ -59,7 +47,7 @@
     body {
       font-family: "Inter", sans-serif;
       background: var(--black);
-      color: var(--text);
+      color: var(--white);
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -78,21 +66,26 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       background: rgba(5,5,5,0.88);
       backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      -webkit-backdrop-filter: blur(15px);
+
+      border-bottom: 1px solid rgba(212,175,55,0.15);
     }
 
     .logo {
       font-family: "Playfair Display", serif;
       font-size: 1.8rem;
+      font-weight: 700;
       color: var(--gold);
       text-decoration: none;
+      letter-spacing: 2px;
     }
 
     .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 28px;
       list-style: none;
     }
 
@@ -117,11 +110,12 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 20px 80px;
+
+      padding: 130px 20px 80px;
 
       background:
         linear-gradient(
-          rgba(0,0,0,0.68),
+          rgba(0,0,0,0.48),
           rgba(0,0,0,0.86)
         ),
         url("https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1800&q=85");
@@ -132,21 +126,22 @@
     }
 
     .hero-content {
-      max-width: 850px;
+      width: 100%;
+      max-width: 900px;
     }
 
     .eyebrow {
       color: var(--gold-light);
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       margin-bottom: 20px;
     }
 
     .hero h1 {
       font-family: "Playfair Display", serif;
       font-size: clamp(3rem, 8vw, 6.5rem);
-      line-height: 1.05;
+      line-height: 1.03;
       margin-bottom: 25px;
     }
 
@@ -158,7 +153,7 @@
       max-width: 680px;
       margin: auto;
       color: #d0d0d0;
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 300;
     }
 
@@ -170,23 +165,29 @@
       flex-wrap: wrap;
     }
 
+    /* =========================
+       BUTTONS
+    ========================= */
+
     .btn {
       display: inline-block;
-      padding: 14px 30px;
+      padding: 15px 32px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     .btn-gold {
       background: var(--gold);
-      color: #080808;
+      color: #090909;
+      box-shadow: 0 10px 35px rgba(212,175,55,0.18);
     }
 
     .btn-gold:hover {
       background: var(--gold-light);
       transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(212,175,55,0.28);
     }
 
     .btn-outline {
@@ -197,14 +198,15 @@
     .btn-outline:hover {
       background: var(--gold);
       color: #000;
+      transform: translateY(-3px);
     }
 
     /* =========================
-       GENERAL SECTIONS
+       SECTIONS
     ========================= */
 
     section {
-      width: min(1100px, 92%);
+      width: min(1120px, 92%);
       margin: auto;
       padding: 100px 0;
     }
@@ -213,20 +215,28 @@
       color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 3px;
-      font-size: 0.75rem;
-      margin-bottom: 10px;
+      font-size: 0.72rem;
+      margin-bottom: 12px;
     }
 
     .section-title {
       font-family: "Playfair Display", serif;
       font-size: clamp(2.2rem, 5vw, 3.5rem);
-      margin-bottom: 20px;
+      line-height: 1.15;
+      margin-bottom: 22px;
     }
 
     .section-intro {
       color: var(--muted);
       max-width: 700px;
       margin-bottom: 45px;
+    }
+
+    .gold-line {
+      width: 70px;
+      height: 2px;
+      background: var(--gold);
+      margin: 25px 0;
     }
 
     /* =========================
@@ -236,19 +246,28 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 55px;
       align-items: center;
     }
 
     .about-image {
-      height: 550px;
-      border-radius: 20px;
+      min-height: 560px;
+      border-radius: 22px;
+
       background:
-        linear-gradient(rgba(0,0,0,0.15),rgba(0,0,0,0.35)),
-        url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=85");
+        linear-gradient(
+          rgba(0,0,0,0.12),
+          rgba(0,0,0,0.42)
+        ),
+        url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=85");
+
       background-size: cover;
       background-position: center;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.5);
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.55);
+
+      border: 1px solid rgba(212,175,55,0.18);
     }
 
     .about-text p {
@@ -256,11 +275,34 @@
       margin-bottom: 20px;
     }
 
-    .gold-line {
-      width: 70px;
-      height: 2px;
-      background: var(--gold);
-      margin: 25px 0;
+    /* =========================
+       STATS
+    ========================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      padding: 22px;
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.7rem;
+    }
+
+    .stat span {
+      color: #aaa;
+      font-size: 0.78rem;
     }
 
     /* =========================
@@ -274,11 +316,11 @@
     }
 
     .service-card {
-      padding: 35px 25px;
+      padding: 32px 25px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 18px;
-      transition: 0.35s;
+      transition: 0.35s ease;
     }
 
     .service-card:hover {
@@ -294,7 +336,7 @@
 
     .service-card h3 {
       font-family: "Playfair Display", serif;
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       margin-bottom: 10px;
     }
 
@@ -304,19 +346,27 @@
     }
 
     /* =========================
-       AREAS
+       KARACHI AREAS
     ========================= */
 
     .areas {
       text-align: center;
-      background: linear-gradient(
-        135deg,
-        rgba(212,175,55,0.08),
-        rgba(255,255,255,0.02)
-      );
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(212,175,55,0.08),
+          rgba(255,255,255,0.02)
+        );
+
       border: 1px solid var(--border);
       border-radius: 25px;
-      padding: 65px 30px;
+      padding: 70px 30px;
+    }
+
+    .areas .section-intro {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .area-tags {
@@ -324,7 +374,6 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 12px;
-      margin-top: 30px;
     }
 
     .area-tags span {
@@ -332,7 +381,7 @@
       border: 1px solid rgba(212,175,55,0.35);
       border-radius: 50px;
       color: #ddd;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     /* =========================
@@ -346,17 +395,20 @@
     }
 
     .gallery-item {
-      height: 350px;
-      border-radius: 15px;
+      height: 370px;
+      border-radius: 16px;
       overflow: hidden;
       position: relative;
+      cursor: pointer;
+      border: 1px solid rgba(212,175,55,0.12);
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: 0.5s;
+      display: block;
+      transition: transform 0.5s ease;
     }
 
     .gallery-item:hover img {
@@ -389,7 +441,7 @@
       display: block;
       color: var(--gold);
       margin-top: 20px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     /* =========================
@@ -409,6 +461,7 @@
       text-align: left;
       font-size: 1rem;
       cursor: pointer;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -436,16 +489,19 @@
 
     .contact-box {
       text-align: center;
-      padding: 80px 30px;
+      padding: 85px 30px;
       border-radius: 25px;
+
       background:
         linear-gradient(
-          rgba(0,0,0,0.6),
-          rgba(0,0,0,0.8)
+          rgba(0,0,0,0.55),
+          rgba(0,0,0,0.85)
         ),
         url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85");
+
       background-size: cover;
       background-position: center;
+
       border: 1px solid var(--border);
     }
 
@@ -482,25 +538,32 @@
     }
 
     /* =========================
-       FLOATING WHATSAPP
+       WHATSAPP
     ========================= */
 
     .whatsapp {
       position: fixed;
       right: 22px;
       bottom: 22px;
+
       width: 58px;
       height: 58px;
+
       border-radius: 50%;
       background: #25d366;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       color: white;
       text-decoration: none;
-      font-size: 1.7rem;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      font-size: 1.45rem;
+
+      box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+
       z-index: 1000;
+
       transition: 0.3s;
     }
 
@@ -509,10 +572,55 @@
     }
 
     /* =========================
+       IMAGE LIGHTBOX
+    ========================= */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+
+      background: rgba(0,0,0,0.94);
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 2000;
+
+      padding: 25px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 92%;
+      max-height: 88vh;
+
+      border-radius: 16px;
+
+      box-shadow:
+        0 0 50px rgba(212,175,55,0.25);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+
+      font-size: 2.5rem;
+      color: white;
+
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* =========================
        RESPONSIVE
     ========================= */
 
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
 
       .nav-links {
         display: none;
@@ -536,27 +644,22 @@
       }
 
       .about-image {
-        height: 450px;
+        min-height: 480px;
       }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 600px) {
 
       section {
-        padding: 70px 0;
+        padding: 75px 0;
       }
 
-      .services-grid,
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-item {
-        height: 430px;
+      .hero {
+        min-height: 92vh;
       }
 
       .hero h1 {
-        font-size: 3.2rem;
+        font-size: 3.1rem;
       }
 
       .hero p {
@@ -565,7 +668,33 @@
 
       .btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 310px;
+      }
+
+      .services-grid,
+      .gallery,
+      .testimonials,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item {
+        height: 430px;
+      }
+
+      .about-image {
+        min-height: 430px;
+      }
+
+      .areas {
+        padding: 50px 20px;
+      }
+
+      .whatsapp {
+        width: 54px;
+        height: 54px;
+        right: 16px;
+        bottom: 16px;
       }
     }
   </style>
@@ -592,6 +721,7 @@
   <!-- HERO -->
 
   <header class="hero" id="home">
+
     <div class="hero-content">
 
       <div class="eyebrow">
@@ -599,13 +729,13 @@
       </div>
 
       <h1>
-        Private <span>Companionship</span><br />
-        With Elegance
+        Private <span>Elegance</span><br>
+        With Style
       </h1>
 
       <p>
-        A discreet and respectful gentleman offering premium social
-        companionship for women in Karachi.
+        A refined gentleman offering respectful social companionship,
+        meaningful conversation and elegant company in Karachi.
       </p>
 
       <div class="hero-buttons">
@@ -619,13 +749,17 @@
           💬 Private WhatsApp
         </a>
 
-        <a class="btn btn-outline" href="#services">
+        <a
+          class="btn btn-outline"
+          href="#services"
+        >
           Explore Services
         </a>
 
       </div>
 
     </div>
+
   </header>
 
 
@@ -639,7 +773,9 @@
 
       <div class="about-text">
 
-        <div class="section-label">About Ayaan</div>
+        <div class="section-label">
+          About Ayaan
+        </div>
 
         <h2 class="section-title">
           A Gentleman Who Values Your Time
@@ -654,16 +790,32 @@
 
         <p>
           My focus is simple: good conversation, comfortable company,
-          discretion and making every interaction feel relaxed and
-          enjoyable.
+          discretion and creating a relaxed experience.
         </p>
 
         <p>
-          Whether you're looking for someone to accompany you to dinner,
-          attend a celebration, enjoy a conversation or simply spend
-          quality time together, every arrangement is handled with
-          respect and privacy.
+          Dinner, celebrations, social events or simply quality
+          conversation can all be discussed privately.
         </p>
+
+        <div class="stats">
+
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>Inquiry</span>
+          </div>
+
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Respect</span>
+          </div>
+
+          <div class="stat">
+            <strong>PK</strong>
+            <span>Karachi Based</span>
+          </div>
+
+        </div>
 
       </div>
 
@@ -676,15 +828,17 @@
 
   <section id="services">
 
-    <div class="section-label">What I Offer</div>
+    <div class="section-label">
+      What I Offer
+    </div>
 
     <h2 class="section-title">
       Elegant Company, Your Way
     </h2>
 
     <p class="section-intro">
-      Flexible social companionship designed around comfort, conversation
-      and memorable experiences.
+      Flexible social companionship focused on comfort,
+      conversation and memorable experiences.
     </p>
 
     <div class="services-grid">
@@ -693,8 +847,8 @@
         <div class="service-icon">🍽️</div>
         <h3>Dinner Companion</h3>
         <p>
-          Enjoy a relaxed dinner and meaningful conversation in a
-          comfortable setting.
+          Enjoy a relaxed dinner and meaningful conversation
+          in a comfortable setting.
         </p>
       </div>
 
@@ -702,7 +856,7 @@
         <div class="service-icon">🥂</div>
         <h3>Social Events</h3>
         <p>
-          A polished companion for celebrations, private gatherings
+          Polished company for celebrations, gatherings
           and special occasions.
         </p>
       </div>
@@ -711,8 +865,8 @@
         <div class="service-icon">💬</div>
         <h3>Conversation</h3>
         <p>
-          Sometimes the best experience is simply having someone
-          interesting to talk with.
+          Sometimes the best experience is simply having
+          someone interesting to talk with.
         </p>
       </div>
 
@@ -720,8 +874,8 @@
         <div class="service-icon">🎂</div>
         <h3>Special Occasions</h3>
         <p>
-          Birthdays, celebrations and memorable evenings can be made
-          more enjoyable with thoughtful company.
+          Birthdays and celebrations can be made more
+          memorable with thoughtful company.
         </p>
       </div>
 
@@ -729,8 +883,8 @@
         <div class="service-icon">🌆</div>
         <h3>City Evenings</h3>
         <p>
-          Enjoy an evening around Karachi with comfortable,
-          respectful companionship.
+          Enjoy an evening around Karachi with comfortable
+          and respectful companionship.
         </p>
       </div>
 
@@ -738,8 +892,8 @@
         <div class="service-icon">✨</div>
         <h3>Private Company</h3>
         <p>
-          Personalized companionship arranged with discretion and
-          mutual respect.
+          Personalized arrangements discussed privately
+          with mutual respect.
         </p>
       </div>
 
@@ -748,7 +902,7 @@
   </section>
 
 
-  <!-- KARACHI AREAS -->
+  <!-- KARACHI -->
 
   <section id="areas">
 
@@ -762,12 +916,13 @@
         Serving Karachi's Premium Areas
       </h2>
 
-      <p class="section-intro" style="margin-left:auto;margin-right:auto;">
-        Availability can be discussed privately depending on location,
-        timing and arrangements.
+      <p class="section-intro">
+        Availability can be discussed privately depending
+        on location, timing and arrangements.
       </p>
 
       <div class="area-tags">
+
         <span>DHA Karachi</span>
         <span>Clifton</span>
         <span>PECHS</span>
@@ -776,6 +931,7 @@
         <span>North Nazimabad</span>
         <span>Defence</span>
         <span>Karachi</span>
+
       </div>
 
     </div>
@@ -787,49 +943,51 @@
 
   <section id="gallery">
 
-    <div class="section-label">Gallery</div>
+    <div class="section-label">
+      Gallery
+    </div>
 
     <h2 class="section-title">
       Style & Presence
     </h2>
 
     <p class="section-intro">
-      A glimpse of the elegant and sophisticated style behind the Ayaan
-      experience.
+      A glimpse of the elegant and sophisticated style
+      behind the Ayaan brand.
     </p>
 
     <div class="gallery">
 
       <div class="gallery-item">
         <img
-          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=85"
-          alt="Elegant gentleman portrait in Karachi"
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85"
+          alt="Ayaan gentleman portrait"
           loading="lazy"
-        />
+        >
       </div>
 
       <div class="gallery-item">
         <img
-          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=85"
-          alt="Professional gentleman style"
+          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85"
+          alt="Elegant gentleman style"
           loading="lazy"
-        />
+        >
       </div>
 
       <div class="gallery-item">
         <img
-          src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=700&q=85"
-          alt="Smart gentleman formal style"
+          src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=85"
+          alt="Professional gentleman formal look"
           loading="lazy"
-        />
+        >
       </div>
 
       <div class="gallery-item">
         <img
-          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=85"
-          alt="Private companion gentleman"
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=85"
+          alt="Stylish gentleman portrait"
           loading="lazy"
-        />
+        >
       </div>
 
     </div>
@@ -841,7 +999,9 @@
 
   <section>
 
-    <div class="section-label">Experiences</div>
+    <div class="section-label">
+      Experiences
+    </div>
 
     <h2 class="section-title">
       What Clients Appreciate
@@ -850,21 +1010,29 @@
     <div class="testimonials">
 
       <div class="testimonial">
+
         <p>
-          “Professional, respectful and easy to talk to. The entire
-          evening felt comfortable and relaxed.”
+          “Professional, respectful and easy to talk to.
+          The entire evening felt comfortable and relaxed.”
         </p>
 
-        <strong>— Private Client, Karachi</strong>
+        <strong>
+          — Private Client, Karachi
+        </strong>
+
       </div>
 
       <div class="testimonial">
+
         <p>
-          “Very well-mannered and discreet. I appreciated the attention
-          to privacy and good conversation.”
+          “Very well-mannered and discreet. I appreciated
+          the attention to privacy and good conversation.”
         </p>
 
-        <strong>— Private Client, DHA</strong>
+        <strong>
+          — Private Client, DHA
+        </strong>
+
       </div>
 
     </div>
@@ -876,58 +1044,69 @@
 
   <section id="faq">
 
-    <div class="section-label">Frequently Asked</div>
+    <div class="section-label">
+      Frequently Asked
+    </div>
 
     <h2 class="section-title">
       Questions & Answers
     </h2>
 
     <div class="faq-item">
+
       <button class="faq-question">
         Is the service private?
         <span>+</span>
       </button>
 
       <div class="faq-answer">
-        Privacy and respectful communication are important. Details
-        should be discussed directly before making any arrangement.
+        Privacy and respectful communication are important.
+        Details should be discussed directly before making
+        any arrangement.
       </div>
+
     </div>
 
     <div class="faq-item">
+
       <button class="faq-question">
         Which areas of Karachi are covered?
         <span>+</span>
       </button>
 
       <div class="faq-answer">
-        DHA, Clifton, PECHS and other Karachi locations may be available
-        depending on timing and arrangement.
+        DHA, Clifton, PECHS and other Karachi locations
+        may be available depending on timing and arrangement.
       </div>
+
     </div>
 
     <div class="faq-item">
+
       <button class="faq-question">
         Can I request dinner or social companionship?
         <span>+</span>
       </button>
 
       <div class="faq-answer">
-        Yes. Dinner, conversation, celebrations and social occasions
-        can be discussed privately.
+        Yes. Dinner, conversation, celebrations and social
+        occasions can be discussed privately.
       </div>
+
     </div>
 
     <div class="faq-item">
+
       <button class="faq-question">
         How do I make an inquiry?
         <span>+</span>
       </button>
 
       <div class="faq-answer">
-        Use the WhatsApp button below to start a private conversation
-        and discuss availability and expectations.
+        Use the WhatsApp button below to start a private
+        conversation and discuss availability and expectations.
       </div>
+
     </div>
 
   </section>
@@ -948,9 +1127,9 @@
       </h2>
 
       <p>
-        If you're looking for respectful and discreet companionship
-        in Karachi, send a private message to discuss your requirements
-        and availability.
+        If you're looking for respectful and discreet
+        companionship in Karachi, send a private message
+        to discuss your requirements and availability.
       </p>
 
       <a
@@ -991,7 +1170,7 @@
   </footer>
 
 
-  <!-- FLOATING WHATSAPP -->
+  <!-- WHATSAPP -->
 
   <a
     class="whatsapp"
@@ -1000,21 +1179,34 @@
     rel="noopener noreferrer"
     aria-label="Contact Ayaan on WhatsApp"
   >
-    ☎
+    💬
   </a>
+
+
+  <!-- LIGHTBOX -->
+
+  <div class="lightbox" id="lightbox">
+
+    <div class="lightbox-close" id="lightboxClose">
+      ×
+    </div>
+
+    <img id="lightboxImage" src="" alt="Gallery preview">
+
+  </div>
 
 
   <!-- JAVASCRIPT -->
 
   <script>
 
-    /* Current Year */
+    /* YEAR */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
 
-    /* FAQ Accordion */
+    /* FAQ */
 
     const faqItems =
       document.querySelectorAll(".faq-item");
@@ -1026,30 +1218,84 @@
 
       question.addEventListener("click", () => {
 
+        const isActive =
+          item.classList.contains("active");
+
         faqItems.forEach(other => {
 
-          if (other !== item) {
-            other.classList.remove("active");
+          other.classList.remove("active");
 
-            const icon =
-              other.querySelector(".faq-question span");
+          const icon =
+            other.querySelector(".faq-question span");
 
-            icon.textContent = "+";
-          }
+          icon.textContent = "+";
 
         });
 
-        item.classList.toggle("active");
+        if (!isActive) {
 
-        const icon =
-          question.querySelector("span");
+          item.classList.add("active");
 
-        icon.textContent =
-          item.classList.contains("active")
-            ? "−"
-            : "+";
+          question.querySelector("span").textContent = "−";
+
+        }
 
       });
+
+    });
+
+
+    /* GALLERY LIGHTBOX */
+
+    const lightbox =
+      document.getElementById("lightbox");
+
+    const lightboxImage =
+      document.getElementById("lightboxImage");
+
+    const lightboxClose =
+      document.getElementById("lightboxClose");
+
+    document.querySelectorAll(".gallery-item img")
+      .forEach(image => {
+
+        image.addEventListener("click", () => {
+
+          lightboxImage.src = image.src;
+          lightboxImage.alt = image.alt;
+
+          lightbox.classList.add("active");
+
+        });
+
+      });
+
+
+    lightboxClose.addEventListener("click", () => {
+
+      lightbox.classList.remove("active");
+
+    });
+
+
+    lightbox.addEventListener("click", event => {
+
+      if (event.target === lightbox) {
+
+        lightbox.classList.remove("active");
+
+      }
+
+    });
+
+
+    document.addEventListener("keydown", event => {
+
+      if (event.key === "Escape") {
+
+        lightbox.classList.remove("active");
+
+      }
 
     });
 
@@ -1057,4 +1303,3 @@
 
 </body>
 </html>
-```
