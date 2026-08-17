@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ==============================
-     AUTO UPDATE COPYRIGHT YEAR
-  ============================== */
+  /* =========================================
+     COPYRIGHT YEAR
+  ========================================= */
 
   const yearSpan = document.getElementById("year");
 
@@ -11,27 +11,35 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* ==============================
-     PREMIUM IMAGE LIGHTBOX
-  ============================== */
+  /* =========================================
+     GALLERY
+  ========================================= */
 
-  const galleryImages = [
-    ...document.querySelectorAll(".gallery img")
-  ];
+  const galleryImages = Array.from(
+    document.querySelectorAll(".gallery img")
+  );
 
   if (!galleryImages.length) return;
 
+
+  /* =========================================
+     LIGHTBOX STATE
+  ========================================= */
+
   let currentIndex = 0;
   let overlay = null;
+  let previousActiveElement = null;
 
 
-  /* ==============================
+  /* =========================================
      CREATE LIGHTBOX
-  ============================== */
+  ========================================= */
 
   function createLightbox() {
 
     if (overlay) return;
+
+    previousActiveElement = document.activeElement;
 
     overlay = document.createElement("div");
 
@@ -39,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     overlay.setAttribute("role", "dialog");
     overlay.setAttribute("aria-modal", "true");
-    overlay.setAttribute("aria-label", "Image preview");
+    overlay.setAttribute("aria-label", "Gallery image preview");
 
     overlay.innerHTML = `
       <button
@@ -83,13 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.style.overflow = "hidden";
 
-
-    /* Close button */
+    /* Close */
 
     overlay
       .querySelector(".lightbox-close")
       .addEventListener("click", closeLightbox);
-
 
     /* Previous */
 
@@ -97,41 +103,40 @@ document.addEventListener("DOMContentLoaded", () => {
       .querySelector(".lightbox-prev")
       .addEventListener("click", showPrevious);
 
-
     /* Next */
 
     overlay
       .querySelector(".lightbox-next")
       .addEventListener("click", showNext);
 
-
-    /* Click outside image */
+    /* Background click */
 
     overlay.addEventListener("click", (event) => {
 
-      if (
-        event.target === overlay ||
-        event.target.classList.contains("lightbox-content")
-      ) {
+      if (event.target === overlay) {
         closeLightbox();
       }
 
     });
 
-
-    /* Keyboard navigation */
+    /* Keyboard */
 
     document.addEventListener(
       "keydown",
       handleKeyboard
     );
 
+    /* Focus close button */
+
+    overlay
+      .querySelector(".lightbox-close")
+      .focus();
   }
 
 
-  /* ==============================
+  /* =========================================
      SHOW IMAGE
-  ============================== */
+  ========================================= */
 
   function showImage(index) {
 
@@ -150,55 +155,73 @@ document.addEventListener("DOMContentLoaded", () => {
     const counter =
       overlay.querySelector(".lightbox-counter");
 
+    const previousButton =
+      overlay.querySelector(".lightbox-prev");
+
+    const nextButton =
+      overlay.querySelector(".lightbox-next");
+
+
+    /* Image */
 
     lightboxImage.src =
+      selectedImage.currentSrc ||
       selectedImage.src;
 
     lightboxImage.alt =
-      selectedImage.alt || "Gallery image";
+      selectedImage.alt ||
+      "Gallery image";
 
+
+    /* Counter */
 
     counter.textContent =
       `${currentIndex + 1} / ${galleryImages.length}`;
 
 
-    /* Small animation */
+    /* Animation */
 
-    lightboxImage.classList.remove("lightbox-show");
+    lightboxImage.classList.remove(
+      "lightbox-show"
+    );
 
     requestAnimationFrame(() => {
-      lightboxImage.classList.add("lightbox-show");
+
+      requestAnimationFrame(() => {
+
+        lightboxImage.classList.add(
+          "lightbox-show"
+        );
+
+      });
+
     });
 
 
-    /* Hide navigation if only one image */
-
-    const prev =
-      overlay.querySelector(".lightbox-prev");
-
-    const next =
-      overlay.querySelector(".lightbox-next");
+    /* Navigation */
 
     if (galleryImages.length <= 1) {
 
-      prev.style.display = "none";
-      next.style.display = "none";
+      previousButton.style.display = "none";
+      nextButton.style.display = "none";
 
     } else {
 
-      prev.style.display = "flex";
-      next.style.display = "flex";
+      previousButton.style.display = "flex";
+      nextButton.style.display = "flex";
 
     }
 
   }
 
 
-  /* ==============================
+  /* =========================================
      OPEN LIGHTBOX
-  ============================== */
+  ========================================= */
 
   function openLightbox(index) {
+
+    if (overlay) return;
 
     currentIndex = index;
 
@@ -209,38 +232,50 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* ==============================
+  /* =========================================
      CLOSE LIGHTBOX
-  ============================== */
+  ========================================= */
 
   function closeLightbox() {
 
     if (!overlay) return;
 
-    overlay.classList.add("closing");
+    const currentOverlay = overlay;
 
-    setTimeout(() => {
-
-      if (overlay) {
-        overlay.remove();
-        overlay = null;
-      }
-
-      document.body.style.overflow = "";
-
-    }, 200);
+    currentOverlay.classList.add("closing");
 
     document.removeEventListener(
       "keydown",
       handleKeyboard
     );
 
+    setTimeout(() => {
+
+      currentOverlay.remove();
+
+      if (overlay === currentOverlay) {
+        overlay = null;
+      }
+
+      document.body.style.overflow = "";
+
+      /* Restore focus */
+
+      if (
+        previousActiveElement &&
+        typeof previousActiveElement.focus === "function"
+      ) {
+        previousActiveElement.focus();
+      }
+
+    }, 220);
+
   }
 
 
-  /* ==============================
+  /* =========================================
      NEXT IMAGE
-  ============================== */
+  ========================================= */
 
   function showNext(event) {
 
@@ -253,9 +288,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* ==============================
+  /* =========================================
      PREVIOUS IMAGE
-  ============================== */
+  ========================================= */
 
   function showPrevious(event) {
 
@@ -268,9 +303,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* ==============================
+  /* =========================================
      KEYBOARD CONTROLS
-  ============================== */
+  ========================================= */
 
   function handleKeyboard(event) {
 
@@ -279,14 +314,17 @@ document.addEventListener("DOMContentLoaded", () => {
     switch (event.key) {
 
       case "Escape":
+        event.preventDefault();
         closeLightbox();
         break;
 
       case "ArrowRight":
+        event.preventDefault();
         showNext();
         break;
 
       case "ArrowLeft":
+        event.preventDefault();
         showPrevious();
         break;
 
@@ -295,23 +333,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* ==============================
-     ATTACH GALLERY EVENTS
-  ============================== */
+  /* =========================================
+     PRELOAD GALLERY IMAGES
+  ========================================= */
 
-  galleryImages.forEach((img, index) => {
+  galleryImages.forEach((img) => {
 
     img.style.cursor = "zoom-in";
 
-    img.setAttribute(
-      "tabindex",
-      "0"
-    );
+    img.setAttribute("tabindex", "0");
 
-    img.setAttribute(
-      "role",
-      "button"
-    );
+    img.setAttribute("role", "button");
 
     img.setAttribute(
       "aria-label",
@@ -319,34 +351,91 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-    /* Mouse */
+    /* Click */
 
-    img.addEventListener(
-      "click",
-      () => openLightbox(index)
-    );
+    img.addEventListener("click", () => {
+
+      const index =
+        galleryImages.indexOf(img);
+
+      openLightbox(index);
+
+    });
 
 
     /* Keyboard */
 
-    img.addEventListener(
-      "keydown",
-      (event) => {
+    img.addEventListener("keydown", (event) => {
 
-        if (
-          event.key === "Enter" ||
-          event.key === " "
-        ) {
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
 
-          event.preventDefault();
+        event.preventDefault();
 
-          openLightbox(index);
+        const index =
+          galleryImages.indexOf(img);
 
-        }
+        openLightbox(index);
 
       }
-    );
+
+    });
 
   });
+
+
+  /* =========================================
+     SWIPE SUPPORT FOR MOBILE
+  ========================================= */
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+
+  document.addEventListener(
+    "touchstart",
+    (event) => {
+
+      if (!overlay) return;
+
+      touchStartX =
+        event.changedTouches[0].screenX;
+
+    },
+    { passive: true }
+  );
+
+
+  document.addEventListener(
+    "touchend",
+    (event) => {
+
+      if (!overlay) return;
+
+      touchEndX =
+        event.changedTouches[0].screenX;
+
+      const difference =
+        touchStartX - touchEndX;
+
+
+      /* Swipe left */
+
+      if (difference > 60) {
+        showNext();
+      }
+
+
+      /* Swipe right */
+
+      if (difference < -60) {
+        showPrevious();
+      }
+
+    },
+    { passive: true }
+  );
 
 });
